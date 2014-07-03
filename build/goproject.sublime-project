@@ -1,0 +1,42 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": ".."
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "GoAsm",
+			"cmd": ["make"],
+			"file_regex": "Line (?<line number>\\d+)[^(]+\\((?<file name>[\\w_.]+)\\):-\\n(?m:(?<error message>.*))",
+			"line_regex": "^Error!$",
+			"working_dir": "${file_path}",
+			"selector": "source.asm",
+			//"encoding":"utf8",
+			"encoding":"cp936",
+			"variants":
+			[
+				{
+					"name": "Run",
+					"cmd": ["make", "run"]
+				},
+				{
+					"name": "Clean",
+					"cmd": ["make", "clean"]
+				},
+				{
+					"name": "Debug",
+					"cmd": ["make", "debug"]
+				}
+			],
+			"env":
+			{
+				"INCLUDE": "D:\\Program Files (x86)\\GoAsm\\ExInclude",
+			},
+			"path": "D:\\bin;D:\\Program Files (x86)\\GnuWin32\\bin;D:\\Program Files (x86)\\GoAsm\\Bin;D:\\Program Files (x86)\\GoAsm\\GoBug"
+		}
+	]
+}
